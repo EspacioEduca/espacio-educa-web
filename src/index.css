@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos base para consistencia */
+body {
+  @apply text-brand-black bg-brand-white font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-mono font-bold;
+}

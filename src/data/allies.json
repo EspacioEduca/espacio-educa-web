@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Colegio María Inmaculada",
+        "role": "Aliado Educativo (Sede)",
+        "logo": "https://via.placeholder.com/150?text=Maria+Inmaculada"
+    },
+    {
+        "id": 2,
+        "name": "Colegio Campo Rico",
+        "role": "Aliado Educativo (Sede)",
+        "logo": "https://via.placeholder.com/150?text=Campo+Rico"
+    },
+    {
+        "id": 3,
+        "name": "ESMT",
+        "role": "Aliado de Empleabilidad",
+        "logo": "https://via.placeholder.com/150?text=ESMT"
+    },
+    {
+        "id": 4,
+        "name": "4Geeks Academy",
+        "role": "Aliado de Becas",
+        "logo": "https://via.placeholder.com/150?text=4Geeks"
+    }
+]

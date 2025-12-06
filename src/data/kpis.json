@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "number": "150+",
+        "label": "Estudiantes Graduados",
+        "description": "Certificados en programación básica y avanzada."
+    },
+    {
+        "id": 2,
+        "number": "93",
+        "label": "Horas Académicas",
+        "description": "De formación intensiva anual por estudiante."
+    },
+    {
+        "id": 3,
+        "number": "40k",
+        "label": "USD Recaudados",
+        "description": "Invertidos íntegramente en educación tecnológica."
+    },
+    {
+        "id": 4,
+        "number": "4+",
+        "label": "Casos de Éxito",
+        "description": "Egresados trabajando en empresas como ESMT y Banesco."
+    }
+]

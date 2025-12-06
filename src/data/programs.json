@@ -1,0 +1,48 @@
+[
+    {
+        "id": "basico",
+        "title": "Curso Básico",
+        "level": "Iniciación",
+        "duration": "93 Horas Académicas (Sábados)",
+        "description": "El primer paso para entender el lenguaje de la web. Enfocado en lógica y estructura.",
+        "modules": [
+            "Introducción a la Lógica de Programación",
+            "HTML5: Estructura semántica",
+            "CSS3: Estilos y Diseño Responsivo",
+            "JavaScript: Variables, Condicionales y Funciones",
+            "Manipulación del DOM",
+            "6 Proyectos Prácticos Evaluados"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Lógica",
+            "DOM"
+        ],
+        "target": "Jóvenes de 12 a 16 años sin experiencia previa."
+    },
+    {
+        "id": "avanzado",
+        "title": "Curso Avanzado",
+        "level": "Profesionalización",
+        "duration": "1 Año Escolar (Sábados)",
+        "description": "Formación técnica profunda para la inserción laboral como Junior Developer.",
+        "modules": [
+            "Repaso y Nivelación (Git & Github)",
+            "JavaScript Moderno (ES6+) y Algoritmos",
+            "React.js (Componentes, Hooks, State)",
+            "Node.js y Consumo de APIs",
+            "Programación Orientada a Objetos (POO)",
+            "Introducción a TypeScript y Bootstrap"
+        ],
+        "skills": [
+            "React.js",
+            "Node.js",
+            "Git",
+            "API",
+            "POO"
+        ],
+        "target": "Egresados del curso básico o jóvenes con prueba de nivelación."
+    }
+]
