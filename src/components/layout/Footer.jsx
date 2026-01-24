@@ -60,7 +60,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li className="opacity-50 cursor-default">
-                                RIF: J-XXXXXXXX-X
+                                RIF: J-506723549
                             </li>
                         </ul>
                     </div>
