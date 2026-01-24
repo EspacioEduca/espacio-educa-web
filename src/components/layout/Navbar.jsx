@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
 import logoImg from '../../assets/logos/logo_sencillo.png';
+import siteData from '../../data/kpis.json';
 
 const Navbar = () => {
+    const logoSrc = siteData.hero.logoUrl || "/src/assets/logos/logo_sencillo.png";
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
@@ -19,9 +21,12 @@ const Navbar = () => {
                 <div className="flex justify-between h-20 items-center">
 
                     {/* Logo */}
-                    <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-                        <img className="h-10 w-auto" src={logoImg} alt="Espacio Educa Logo" />
-                        <span className="font-mono font-bold text-brand-primary text-xl hidden sm:block">ESPACIO EDUCA</span>
+                    <Link to="/" className="flex-shrink-0">
+                        <img
+                            className="h-12 w-auto object-contain"
+                            src={logoSrc}
+                            alt="Logo Espacio Educa"
+                        />
                     </Link>
 
                     {/* Desktop Menu */}
