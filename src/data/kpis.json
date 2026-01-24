@@ -1,26 +1,31 @@
-[
-    {
-        "id": 1,
-        "number": "150+",
-        "label": "Estudiantes Graduados",
-        "description": "Certificados en programación básica y avanzada."
+{
+    "hero": {
+        "logoUrl": "src/assets/logos/logo_sencillo.png",
+        "mainImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+        "title": "Construimos el futuro de Venezuela, una línea de código a la vez",
+        "description": "Creemos firmemente en la educación, la tecnología y el trabajo como motores para impulsar vidas. Queremos vivir en un mundo donde abunden espacios de conexión y crecimiento.",
+        "subDescription": "Juntos, educamos, capacitamos y creamos comunidad. Nuestra misión es sencilla: transformar vidas a través de la educación."
     },
-    {
-        "id": 2,
-        "number": "93",
-        "label": "Horas Académicas",
-        "description": "De formación intensiva anual por estudiante."
-    },
-    {
-        "id": 3,
-        "number": "40k",
-        "label": "USD Recaudados",
-        "description": "Invertidos íntegramente en educación tecnológica."
-    },
-    {
-        "id": 4,
-        "number": "4+",
-        "label": "Casos de Éxito",
-        "description": "Egresados trabajando en empresas como ESMT y Banesco."
-    }
-]
+    "stats": [
+        {
+            "id": 1,
+            "number": "137",
+            "label": "Alumnos Graduados"
+        },
+        {
+            "id": 2,
+            "number": "03",
+            "label": "Cohortes Culminadas"
+        },
+        {
+            "id": 3,
+            "number": "02",
+            "label": "Colegios Aliados"
+        },
+        {
+            "id": 4,
+            "number": "75",
+            "label": "Voluntarios Activos"
+        }
+    ]
+}

@@ -8,16 +8,14 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    primary: '#3843D0',    // Azul Púrpura (Principal) 
+                    primary: '#494b9a',    // Azul Púrpura (Principal) 
                     dark: '#16006D',       // Azul Oscuro (Fondos) 
-                    accent: '#F8623F',     // Naranja (Acción/Botones) 
+                    accent: '#E95734',     // Naranja (Acción/Botones) 
                     white: '#FFFFFF',      // Blanco 
-                    black: '#000000',      // Negro [cite: 46]
+                    black: '#000000',      // 
                 }
             },
             fontFamily: {
-                // Asegúrate de importar la fuente "Space Mono" o similar de Google Fonts en tu CSS
-                // para simular la "Disket Mono" si no tienes el archivo webfont.
                 mono: ['"Space Mono"', 'monospace'],
                 sans: ['Helvetica', 'Arial', 'sans-serif'],
             }
