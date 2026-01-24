@@ -9,7 +9,7 @@ import Programs from './pages/Programs';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/espacio-educa-web">
       <div className="flex flex-col min-h-screen bg-brand-white">
         <Navbar />
         <main className="flex-grow">
