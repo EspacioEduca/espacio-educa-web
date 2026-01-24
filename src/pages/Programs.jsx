@@ -62,9 +62,9 @@ const Programs = () => {
                                 </span>
                                 <h3 className="text-3xl mt-4 mb-2 text-brand-dark">{prog.title}</h3>
                                 <p className="text-sm text-gray-500 font-mono mb-6">{prog.duration}</p>
-                                <Link to="/contact">
+                                {/* <Link to="/contact">
                                     <Button variant="outline" className="w-full text-sm">Postularme</Button>
-                                </Link>
+                                </Link> */}
                             </div>
 
                             {/* Contenido del Syllabus */}
