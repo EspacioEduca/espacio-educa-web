@@ -1,7 +1,8 @@
 {
     "hero": {
-        "logoUrl": "src/assets/logos/logo_sencillo.png",
-        "mainImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+        "logoUrl": "src/assets/logos/ee_logo_principal.svg",
+        "footerLogoUrl": "src/assets/logos/logo_principal_blanco.svg",
+        "mainImage": "src/assets/images/principal.png",
         "title": "Construimos el futuro de Venezuela, una línea de código a la vez",
         "description": "Creemos firmemente en la educación, la tecnología y el trabajo como motores para impulsar vidas. Queremos vivir en un mundo donde abunden espacios de conexión y crecimiento.",
         "subDescription": "Juntos, educamos, capacitamos y creamos comunidad. Nuestra misión es sencilla: transformar vidas a través de la educación."

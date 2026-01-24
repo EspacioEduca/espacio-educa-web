@@ -1,0 +1,62 @@
+{
+    "projects": {
+        "title": "Explora los Proyectos de Nuestros Estudiantes",
+        "items": [
+            {
+                "id": 1,
+                "title": "E-Commerce de Moda",
+                "student": "Cohorte 3",
+                "image": "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop",
+                "link": "https://github.com"
+            },
+            {
+                "id": 2,
+                "title": "App de Gestión de Tareas",
+                "student": "Cohorte 3",
+                "image": "https://images.unsplash.com/photo-1481487484168-9b9301cd2766?q=80&w=1000&auto=format&fit=crop",
+                "link": "https://github.com"
+            },
+            {
+                "id": 3,
+                "title": "Landing Page Corporativa",
+                "student": "Cohorte 2",
+                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+                "link": "https://github.com"
+            }
+        ]
+    },
+    "volunteer": {
+        "title": "Únete a nuestro equipo",
+        "image": "src/assets/images/volunteer.jpeg",
+        "cardTitle": "Sé voluntario",
+        "description": "No necesitas ser un experto en pedagogía para cambiar una vida. Si tienes pasión por la tecnología y ganas de compartir lo que sabes, tienes un lugar en nuestra mesa. Sé el mentor que a ti te hubiera gustado tener.",
+        "buttonText": "Únete ahora",
+        "link": "/contact"
+    },
+    "media": {
+        "title": "Inspirando a través de los medios",
+        "items": [
+            {
+                "id": 1,
+                "mediaName": "TalCual",
+                "logo": "src/assets/logos/TalCualOriginal 1.png",
+                "image": "src/assets/images/tal_cual_image.jpg",
+                "link": "https://talcualdigital.com/en-barrio-union-de-petare-se-programa-el-futuro/"
+            },
+            {
+                "id": 2,
+                "mediaName": "El Ucabista",
+                "logo": "src/assets/logos/ElUcabistaFondo_PNG 1.png",
+                "image": "src/assets/images/ucabista.jpg",
+                "link": "https://elucabista.com/2023/02/27/en-petare-ucabistas-de-espacio-educa-ensenan-programacion-para-construir-un-futuro-competitivo/"
+            },
+            {
+                "id": 3,
+                "mediaName": "Historias que Laten",
+                "logo": "src/assets/logos/HIstoriasQueLatenOriginal 1.png",
+                "image": "src/assets/images/historias_que_laten.jpg",
+                "link": "https://www.historiasquelaten.com/ensenar-programacion-en-petare-un-espacio-para-el-futuro/"
+            }
+        ]
+    }
+}

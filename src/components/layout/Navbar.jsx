@@ -40,9 +40,9 @@ const Navbar = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link to="/donate">
+                        {/* <Link to="/donate">
                             <Button variant="accent" className="py-2 px-4 text-sm">DONAR AHORA</Button>
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* Mobile Menu Button */}
