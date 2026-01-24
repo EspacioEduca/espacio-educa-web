@@ -27,7 +27,7 @@
     },
     "volunteer": {
         "title": "Únete a nuestro equipo",
-        "image": "src/assets/images/volunteer.jpeg",
+        "image": "/images/volunteer.jpeg",
         "cardTitle": "Sé voluntario",
         "description": "No necesitas ser un experto en pedagogía para cambiar una vida. Si tienes pasión por la tecnología y ganas de compartir lo que sabes, tienes un lugar en nuestra mesa. Sé el mentor que a ti te hubiera gustado tener.",
         "buttonText": "Únete ahora",
@@ -39,22 +39,22 @@
             {
                 "id": 1,
                 "mediaName": "TalCual",
-                "logo": "src/assets/logos/TalCualOriginal 1.png",
-                "image": "src/assets/images/tal_cual_image.jpg",
+                "logo": "/logos/TalCualOriginal 1.png",
+                "image": "/images/tal_cual_image.jpg",
                 "link": "https://talcualdigital.com/en-barrio-union-de-petare-se-programa-el-futuro/"
             },
             {
                 "id": 2,
                 "mediaName": "El Ucabista",
-                "logo": "src/assets/logos/ElUcabistaFondo_PNG 1.png",
-                "image": "src/assets/images/ucabista.jpg",
+                "logo": "/logos/ElUcabistaFondo_PNG 1.png",
+                "image": "/images/ucabista.jpg",
                 "link": "https://elucabista.com/2023/02/27/en-petare-ucabistas-de-espacio-educa-ensenan-programacion-para-construir-un-futuro-competitivo/"
             },
             {
                 "id": 3,
                 "mediaName": "Historias que Laten",
-                "logo": "src/assets/logos/HIstoriasQueLatenOriginal 1.png",
-                "image": "src/assets/images/historias_que_laten.jpg",
+                "logo": "/logos/HIstoriasQueLatenOriginal 1.png",
+                "image": "/images/historias_que_laten.jpg",
                 "link": "https://www.historiasquelaten.com/ensenar-programacion-en-petare-un-espacio-para-el-futuro/"
             }
         ]

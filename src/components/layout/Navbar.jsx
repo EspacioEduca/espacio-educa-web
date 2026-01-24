@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
-import logoImg from '../../assets/logos/logo_sencillo.png';
 import siteData from '../../data/kpis.json';
+import { getAssetUrl } from '../../utils/imagePath';
 
 const Navbar = () => {
-    const logoSrc = siteData.hero.logoUrl || "/src/assets/logos/logo_sencillo.png";
+    const logoSrc = getAssetUrl(siteData.hero.logoUrl || "/logos/logo_sencillo.png");
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [

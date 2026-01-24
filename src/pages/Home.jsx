@@ -6,6 +6,8 @@ import Button from '../components/ui/Button';
 // Data Imports
 import kpiData from '../data/kpis.json';
 import homeData from '../data/home_sections.json';
+// Utility to get asset URLs
+import { getAssetUrl } from '../utils/imagePath';
 
 // --- SUB-COMPONENT: PROJECT CARD (Sin cambios) ---
 const ProjectCard = ({ project }) => (
@@ -17,7 +19,7 @@ const ProjectCard = ({ project }) => (
     >
         <div className="relative h-48 md:h-64 overflow-hidden">
             <img
-                src={project.image}
+                src={getAssetUrl(project.image)}
                 alt={project.title}
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
@@ -48,7 +50,7 @@ const VolunteerSection = ({ data }) => (
                 {/* 1. Columna Izquierda: Imagen (Ambiente real) */}
                 <div className="w-full h-64 md:h-96 relative rounded-t-xl md:rounded-xl overflow-hidden shadow-lg">
                     <img
-                        src={data.image}
+                        src={getAssetUrl(data.image)}
                         alt="Voluntarios Espacio Educa"
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
@@ -96,7 +98,7 @@ const MediaSection = ({ data }) => (
                     >
                         {/* 1. Imagen de Fondo (Grayscale por defecto, color al hover) */}
                         <img
-                            src={item.image}
+                            src={getAssetUrl(item.image)}
                             alt={`Noticia en ${item.mediaName}`}
                             className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
                         />
@@ -104,7 +106,7 @@ const MediaSection = ({ data }) => (
                         {/* 2. Overlay del Logo (Fondo semitransparente) */}
                         <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm py-3 px-4 flex justify-center items-center h-16 transition-colors duration-300">
                             <img
-                                src={item.logo}
+                                src={getAssetUrl(item.logo)}
                                 alt={`Logo ${item.mediaName}`}
                                 className="h-8 md:h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
                             />
@@ -127,7 +129,7 @@ const Home = () => {
             {/* 1. SECCIÓN HERO */}
             <section className="w-full h-[55vh] md:h-[62vh] bg-gray-300 overflow-hidden relative">
                 <img
-                    src={hero.mainImage}
+                    src={getAssetUrl(hero.mainImage)}
                     alt="Espacio Educa Hero"
                     className="w-full h-full object-cover"
                 />

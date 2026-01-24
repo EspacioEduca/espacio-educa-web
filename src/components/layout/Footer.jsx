@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import siteData from '../../data/kpis.json';
+import { getAssetUrl } from '../../utils/imagePath';
 
 const Footer = () => {
     // Usamos el logo definido en la data, o un fallback
-    const logoSrc = siteData.hero.footerLogoUrl || "src/assets/logos/logo_principal_blanco.svg";
+    const logoSrc = getAssetUrl(siteData.hero.footerLogoUrl || "/logos/logo_principal_blanco.svg");
 
     return (
         <footer className="bg-brand-dark text-white py-12 border-t border-blue-900">
