@@ -7,6 +7,6 @@ output "s3_bucket_name" {
 }
 
 output "nameservers" {
-  value = aws_route53_zone.main.name_servers
+  value = data.aws_route53_zone.main.name_servers
   description = "Configura estos NS en tu registrador de dominio (Godaddy, Namecheap, etc)"
 }
