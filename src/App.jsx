@@ -11,7 +11,7 @@ import Terms from './pages/Terms';
 
 function App() {
   return (
-    <Router basename="/espacio-educa-web">
+    <Router basename="/">
       <div className="flex flex-col min-h-screen bg-brand-white">
         <Navbar />
         <main className="flex-grow">
