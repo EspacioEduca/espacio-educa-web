@@ -10,12 +10,17 @@ const Footer = () => {
     return (
         <footer className="bg-brand-dark text-white py-12 border-t border-blue-900">
             <div className="max-w-7xl mx-auto px-4 text-center md:text-left">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+                {/* 
+                    LAYOUT RESPONSIVO:
+                    - Mobile: 2 columnas, 2 filas (Identidad arriba ocupando todo, Contacto y Legal abajo side-by-side)
+                    - Desktop: 3 columnas (Identidad, Contacto y Legal uno al lado del otro)
+                */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 md:gap-8">
 
-                    {/* COLUMNA 1: IDENTIDAD */}
-                    <div className="flex flex-col items-center md:items-start">
+                    {/* COLUMNA 1: IDENTIDAD (Ocupa las 2 columnas en mobile, 1 en desktop) */}
+                    <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
                         {/* Logo Parametrizado */}
-                        <div className="mb-6 ">
+                        <div className="mb-6">
                             <img
                                 src={logoSrc}
                                 alt="Espacio Educa Logo"
@@ -28,8 +33,8 @@ const Footer = () => {
                     </div>
 
                     {/* COLUMNA 2: CONTACTO */}
-                    <div>
-                        <h4 className="text-brand-accent mb-6 font-mono font-bold text-lg">Contacto</h4>
+                    <div className="col-span-1 flex flex-col items-center md:items-start">
+                        <h4 className="text-brand-accent mb-6 font-mono font-bold text-lg w-full text-center md:text-left">Contacto</h4>
                         <ul className="space-y-4 text-sm text-gray-300">
                             <li className="flex items-center justify-center md:justify-start gap-2">
                                 <span>📍</span> Caracas, Venezuela
@@ -46,20 +51,20 @@ const Footer = () => {
                     </div>
 
                     {/* COLUMNA 3: LEGAL (Links Funcionales) */}
-                    <div>
-                        <h4 className="text-brand-accent mb-6 font-mono font-bold text-lg">Legal</h4>
+                    <div className="col-span-1 flex flex-col items-center md:items-start">
+                        <h4 className="text-brand-accent mb-6 font-mono font-bold text-lg w-full text-center md:text-left">Legal</h4>
                         <ul className="space-y-4 text-sm text-gray-300">
                             <li>
-                                <Link to="/privacy" className="hover:text-brand-accent hover:underline transition-colors">
+                                <Link to="/privacy" className="hover:text-brand-accent hover:underline transition-colors block text-center md:text-left">
                                     Política de Privacidad
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/terms" className="hover:text-brand-accent hover:underline transition-colors">
+                                <Link to="/terms" className="hover:text-brand-accent hover:underline transition-colors block text-center md:text-left">
                                     Términos de Uso
                                 </Link>
                             </li>
-                            <li className="opacity-50 cursor-default">
+                            <li className="opacity-50 cursor-default text-center md:text-left">
                                 RIF: J-506723549
                             </li>
                         </ul>
