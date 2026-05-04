@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { UserPlus, ExternalLink } from 'lucide-react';
+import { UserPlus, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
 import Button from '../components/ui/Button';
 
 // Data Imports
@@ -15,7 +17,7 @@ const ProjectCard = ({ project }) => (
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block overflow-hidden rounded-xl bg-gray-200 shadow-md hover:shadow-xl transition-all duration-300"
+        className="group block overflow-hidden rounded-xl bg-gray-200 shadow-md hover:shadow-xl transition-all duration-300 h-full"
     >
         <div className="relative h-48 md:h-64 overflow-hidden">
             <img
@@ -24,17 +26,184 @@ const ProjectCard = ({ project }) => (
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-brand-primary bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white opacity-0 group-hover:opacity-100 flex items-center gap-2 font-mono font-bold">
+                <span className="text-white opacity-0 group-hover:opacity-100 flex items-center gap-2 font-mono font-bold text-center px-4">
                     Ver Proyecto <ExternalLink size={18} />
                 </span>
             </div>
         </div>
-        <div className="p-4 bg-white">
-            <h3 className="font-mono font-bold text-brand-dark text-lg">{project.title}</h3>
+        <div className="p-4 bg-white h-full border-t border-gray-100">
+            <h3 className="font-mono font-bold text-brand-dark text-lg truncate">{project.title}</h3>
             <p className="text-sm text-gray-500">{project.student}</p>
         </div>
     </a>
 );
+
+// --- SUB-COMPONENT: PROJECTS CAROUSEL ---
+const ProjectsCarousel = ({ projects }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const nextProject = useCallback(() => {
+        setDirection(1);
+        setCurrentIndex((prev) => (prev + 1) % projects.length);
+    }, [projects.length]);
+
+    const prevProject = useCallback(() => {
+        setDirection(-1);
+        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    }, [projects.length]);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+        const interval = setInterval(nextProject, 4000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying, nextProject]);
+
+    const variants = {
+        enter: (direction) => ({
+            x: direction > 0 ? (isMobile ? "100%" : 500) : (isMobile ? "-100%" : -500),
+            opacity: 0,
+            scale: isMobile ? 1 : 0.9,
+            rotateY: isMobile ? 0 : (direction > 0 ? 15 : -15),
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            rotateY: 0,
+            transition: isMobile ? {
+                x: { type: "spring", stiffness: 350, damping: 35, mass: 0.8 },
+                opacity: { duration: 0.2 }
+            } : {
+                x: { type: "spring", stiffness: 200, damping: 25 },
+                opacity: { duration: 0.4 },
+                scale: { duration: 0.4 },
+                rotateY: { duration: 0.4 }
+            }
+        },
+        exit: (direction) => ({
+            zIndex: 0,
+            x: direction < 0 ? (isMobile ? "100%" : 500) : (isMobile ? "-100%" : -500),
+            opacity: 0,
+            scale: isMobile ? 1 : 0.9,
+            rotateY: isMobile ? 0 : (direction < 0 ? 15 : -15),
+            transition: isMobile ? {
+                x: { type: "spring", stiffness: 350, damping: 35, mass: 0.8 },
+                opacity: { duration: 0.2 }
+            } : {
+                x: { type: "spring", stiffness: 200, damping: 25 },
+                opacity: { duration: 0.3 }
+            }
+        })
+    };
+
+    const swipeConfidenceThreshold = 10000;
+    const swipePower = (offset, velocity) => {
+        return Math.abs(offset) * velocity;
+    };
+
+    return (
+        <div 
+            className="relative w-full overflow-hidden perspective-1000 select-none pb-8"
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+            <div className="flex gap-6 md:gap-8 px-4 py-8 md:py-12">
+                <div className="flex w-full max-w-6xl mx-auto touch-pan-y">
+                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                        {[0, 1, 2].map((offset) => {
+                            const index = (currentIndex + offset) % projects.length;
+                            const project = projects[index];
+                            
+                            const visibilityClass = offset === 0 ? "block w-full" : offset === 1 ? "hidden md:block md:w-1/2 lg:w-1/3" : "hidden lg:block lg:w-1/3";
+
+                            return (
+                                <motion.div
+                                    key={`${project.id}-${index}`}
+                                    custom={direction}
+                                    variants={variants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    drag={offset === 0 ? "x" : false}
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={0.2}
+                                    onDragStart={() => setIsAutoPlaying(false)}
+                                    onDragEnd={(e, { offset, velocity }) => {
+                                        setIsAutoPlaying(true);
+                                        const swipe = swipePower(offset.x, velocity.x);
+                                        if (swipe < -swipeConfidenceThreshold) {
+                                            nextProject();
+                                        } else if (swipe > swipeConfidenceThreshold) {
+                                            prevProject();
+                                        }
+                                    }}
+                                    layout
+                                    whileHover={!isMobile ? { 
+                                        y: -10,
+                                        scale: 1.02,
+                                        transition: { type: "spring", stiffness: 400, damping: 10 }
+                                    } : {}}
+                                    className={`${visibilityClass} px-3 md:px-4 flex-shrink-0 cursor-grab active:cursor-grabbing`}
+                                >
+                                    <ProjectCard project={project} />
+                                </motion.div>
+                            );
+                        })}
+                    </AnimatePresence>
+                </div>
+            </div>
+
+            {/* Controles Nav - Ocultos en móviles */}
+            {!isMobile && (
+                <>
+                    <button
+                        onClick={prevProject}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-brand-primary hover:text-white p-3 rounded-full shadow-2xl text-brand-primary transition-all duration-300 transform hover:scale-110 active:scale-95"
+                    >
+                        <ChevronLeft size={28} />
+                    </button>
+                    <button
+                        onClick={nextProject}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-brand-primary hover:text-white p-3 rounded-full shadow-2xl text-brand-primary transition-all duration-300 transform hover:scale-110 active:scale-95"
+                    >
+                        <ChevronRight size={28} />
+                    </button>
+                </>
+            )}
+
+            {/* Indicadores Animados */}
+            <div className="flex justify-center gap-3 mt-4 md:mt-8">
+                {projects.map((_, idx) => (
+                    <motion.button
+                        key={idx}
+                        onClick={() => {
+                            setDirection(idx > currentIndex ? 1 : -1);
+                            setCurrentIndex(idx);
+                        }}
+                        animate={{
+                            width: currentIndex === idx ? 24 : 10,
+                            backgroundColor: currentIndex === idx ? "#003366" : "#cbd5e1"
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="h-2.5 rounded-full"
+                        aria-label={`Ir al proyecto ${idx + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
 
 // --- SUB-COMPONENT: VOLUNTEER CTA (Sin cambios) ---
 const VolunteerSection = ({ data }) => (
@@ -177,15 +346,13 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 4. PROYECTOS DE ALUMNOS */}
-            <section className="py-20 px-4 max-w-7xl mx-auto w-full">
-                <h2 className="text-3xl font-mono text-center text-brand-black mb-12">
-                    {projects.title}
-                </h2>
-                <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-                    {projects.items.map((proj) => (
-                        <ProjectCard key={proj.id} project={proj} />
-                    ))}
+            {/* 4. PROYECTOS DE ALUMNOS (CARRUSEL) */}
+            <section className="py-20 px-4 w-full bg-gray-100/50">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-mono text-center text-brand-black mb-12">
+                        {projects.title}
+                    </h2>
+                    <ProjectsCarousel projects={projects.items} />
                 </div>
             </section>
 

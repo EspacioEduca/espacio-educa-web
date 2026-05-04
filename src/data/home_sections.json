@@ -4,24 +4,24 @@
         "items": [
             {
                 "id": 1,
-                "title": "E-Commerce de Moda",
-                "student": "Cohorte 3",
-                "image": "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop",
-                "link": "https://github.com"
+                "title": "Curriculum web",
+                "student": "Cesar Jimenez",
+                "image": "/images/Portafolio-1.png",
+                "link": "https://tacoc02.github.io/Mi-Curriculum/?authuser=0#habilidades"
             },
             {
                 "id": 2,
-                "title": "App de Gestión de Tareas",
-                "student": "Cohorte 3",
-                "image": "https://images.unsplash.com/photo-1481487484168-9b9301cd2766?q=80&w=1000&auto=format&fit=crop",
-                "link": "https://github.com"
+                "title": "Proyecto Mario Bros",
+                "student": "Joslis Morelos",
+                "image": "/images/Proyecto-Mario-Bros.png",
+                "link": "https://joslis17.github.io/Proyecto-Mario-Bros./"
             },
             {
                 "id": 3,
-                "title": "Landing Page Corporativa",
-                "student": "Cohorte 2",
-                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
-                "link": "https://github.com"
+                "title": "Portafolio",
+                "student": "Joslis Morelos",
+                "image": "/images/Portafolio-2.png",
+                "link": "https://joslis17.github.io/Proyecto-Portafolio/?authuser=0#sect-1"
             }
         ]
     },
